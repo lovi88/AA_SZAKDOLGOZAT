@@ -1,0 +1,419 @@
+﻿----------------------- Page 1-----------------------
+
+2. Ember-gép rendszerek  
+
+Kérdések  
+z    Mi az ember-gép rendszer, miben különbözik a számítógépes rendszerektől?  
+z    Mit jelentenek azok a globális (eredő) rendszertulajdonságok, mint a megbízhatóság és  
+     biztonság?  
+z    Mi a rendszertervezés és a rendszerbeszerzés?   
+z    Miért befolyásolja a rendszer szervezeti kontextusa a tervezést és a felhasználást?  
+z    Mik a „legacy” rendszerek és miért fontosak számos alkalmazásban?  
+
+Tartalom  
+z    Globális (eredő) rendszertulajdonságok  
+z    Rendszertervezés  
+z    Szervezetek, emberek és számítógépes rendszerek  
+z    „Legacy” rendszerek  
+
+Mit értünk rendszer alatt?  
+z    Kapcsolódó komponensek halmaza, amelyek egy közös cél érdekében működnek együtt.  
+z    A rendszer tartalmazhat szoftvert, mechanikus és elektronikus hardvert. A rendszert  
+     emberek is üzemeltethetik.  
+z    Az egyes rendszerkomponensek más rendszerkomponensektől függnek.   
+z    A rendszerkomponensek tulajdonságai és viselkedése elválaszthatatlanul összefonódnak.   
+
+Rendszerkategóriák  
+z    Technikai (számítógép-alapú) rendszerek   
+      •    Hardvert és szoftvert tartalmazó rendszerek. Az operátorokat és a rendszert működtető  
+           eljárásokat nem tekintjük a rendszer részének.  
+z    Ember-gép rendszerek  
+      •    Olyan rendszerek, amelyek technikai rendszereket is tartalmaznak, csakúgy, mint a  
+           rendszert működtető eljárásokat és a technikai rendszerrel kapcsolatot tartó embereket.  
+           Az ember-gép rendszereket különféle szervezeti szabályok és irányelvek szabályozzák.  
+
+Az ember-gép rendszerek jellemzői  
+z    Globális (eredő) tulajdonságok  
+      •    Olyan rendszertulajdonságok, amelyek a rendszerkomponensektől és azok  
+           kapcsolatától függenek.   
+z    Nem determinisztikus viselkedés  
+      •    Azonos bemenőjelre nem  mindig azonos kimenőjelet produkálnak, mert a rendszer  
+           viselkedése részben az emberi operátoroktól függ.  
+z    Szervezeti céloktól való komplex függés  
+      •    Nem csak a rendszertől függ, hogy az mennyire képes  a szervezet céljait szolgálni.  
+
+Eredő tulajdonságok  
+z    Az egész rendszerre vonatkozó tulajdonságok, melyek nem származtathatók a  
+     komponensek tulajdonságaiból  
+z    A globális (eredő) a rendszerkomponensek kapcsolatából adódnak  
+z    Tehát ezen jellemzők csak akkor mérhetők, ha a komponensek rendszerré történő  
+     integrációja megtörtént  
+
+Ian Sommerville: Software Engineering, 7th edition. Chapter 2  
+
+© Ian Sommerville 2004, © Gyula Simon 2005 (magyar verzió)  
+
+----------------------- Page 2-----------------------
+
+Példák eredő tulajdonságokra  
+
+Tulajdonság                                                        Leírás  
+
+Térfogat                  A rendszer teljes térfogata a komponensek összeállításának mikéntjétől függ  
+
+Megbízhatóság             A rendszer megbízhatósága függ a komponensek megbízhatóságától, de váratlan  
+                          egymásrahatások új abb típusú hibákat okozhatnak.  
+
+Biztonság                 A rendszer biztonsága (támadások elleni ellenálló képessége) komplex, nehezen  
+                          mérhető tulaj donság. Új abb típusú támadásokra a rendszertervezők nem  
+                          számíthattak, így a beépített biztonsági mechanizmusokat ezek ki tudj ák játszani.  
+
+Javíthatóság              Jellemzi, hogy milyen egyszerű a rendszert javítani, miután a hibát észlelték. Függ  
+                          a rendszer diagnosztizálhatóságától, a hibás komponensek elérhetőségétől,  
+                          módosíthatóságától és cserélhetőségétől.  
+
+Használhatóság            Milyen könnyű a rendszert használni. Függ a technikai rendszer komponenseitől,  
+                          az operátoroktól, valamint a működtető környezettől.   
+
+Az eredő tulajdonságok típusai  
+z    Funkcionális tulajdonságok  
+       •   Akkor láthatók, ha a rendszer valamennyi eleme  egy cél elérése érdekében  közösen  
+            dolgozik.  Példa:  Egy  kerékpárnak  akkor  funkcionális  tulajdonsága,  hogy  közlekedési  
+            eszköz, ha azt alkatrészeiből már összeszerelték.  
+z    Nem-funkcionális tulajdonságok  
+       •    Pl.: megbízhatóság, teljesítmény, biztonság.  Ezek a rendszernek a környezetével való  
+            kapcsolatát  jellemzik.  Számítógépes  rendszereknél  gyakran  kritikus  tulajdonságok:  
+            amennyiben egy minimális szintet nem érik el, a rendszer könnyen instabillá válhat.  
+
+A rendszer megbízhatósága  
+z    A komponensek egymásrahatása miatt a hibák a rendszerben tovaterjedhetnek.  
+z    Rendszerhibák gyakran a komponensek közötti nem előrelátott kölcsönhatás eredményei.  
+z    Lehetetlen valamennyi lehetséges kölcsönhatás figyelembe vétele.  
+z    A szoftver megbízhatóság mérőszámai a rendszer megbízhatóságáról hamis képet  
+     adhatnak.  
+
+Mi befolyásolja  a megbízhatóságot?  
+
+z    Hardver megbízhatóság  
+       •    Mennyi a hardver komponens meghibásodási valószínűsége és mennyi ideig tart ennek  
+            a komponensnek a javítása?  
+z    Szoftver megbízhatóság  
+       •    Mekkora annak valószínűsége, hogy egy szoftver komponens hibás eredményt  
+            produkál? (A szoftverhiba annyiban különbözik a hardverhibától, hogy a szoftver nem  
+            kopik.)  
+z    Operátor megbízhatósága   
+       •    Mennyire valószínű, hogy a rendszeroperátor hibázik?  
+
+Ian Sommerville: Software Engineering, 7th edition. Chapter 2  
+
+© Ian Sommerville 2004, © Gyula Simon 2005 (magyar verzió)  
+
+----------------------- Page 3-----------------------
+
+Hibaforrások és kölcsönhatásaik  
+z    Hardver hibák olyan hibás jeleket ered ményezhetnek, melyek kívül esnek a szoftver által várt  
+     tartományon.  
+z    Szoftver hibák figyelmeztető jelzéseket generálnak, melyek az operátort stresszelik és  
+     operátor-hibákhoz vezetnek.   
+z    A rendszert befogadó környezet befolyásolja annak megbízhatóságát.  
+
+A „tilos” típusú tulajdonságok  
+z    Egyes jellemzők (pl. teljesítmény, megbízhatóság) mérhető mennyiségek.  
+z    Más rendszerjellemzők oly módon vannak definiálva, hogy azt a rendszernek „tilos”  
+       •    Biztonság: TILOS a rendszernek kilépni a biztonságos működési tartományból  
+       •   Védelem: TILOS a jogosulatlan felhasználás  
+z    Ezen tulajdonságok mérése nagyon nehéz  
+
+Rendszertervezés  
+z    Ember-gép rendszerek specifikációja, tervezése, implementációja, validációja, telepítése és  
+     fenntartása.  
+z    Foglalkozik a rendszer által nyújtott szolgáltatásokkal, a létrehozást és működést befolyásoló  
+     kényszerekkel, valamint a felhasználás módjával.  
+
+A rendszertervezés folyamata  
+z    Általában a vízesés (waterfall) modellt követi, ami lehetővé teszi a rendszer különböző  
+     részeinek párhuzamos fejlesztését  
+      •    Az egyes fázisok között csak kis iterációs lehetőségek vannak, mert a hardver  
+           változtatása nagyon drága. A hardverproblémákat szoftver megoldásokkal  
+           ellensúlyozzák.   
+      •    Különböző szakterületek mérnökeinek kell együttműködni  
+      •    Sok lehetőség a félreértésekre. Különböző szakterületek más nyelvet beszélnek,  
+            hosszas egyeztetésekre lehet szükség.  
+
+                                                                                                 
+
+Ian Sommerville: Software Engineering, 7th edition. Chapter 2  
+
+© Ian Sommerville 2004, © Gyula Simon 2005 (magyar verzió)  
+
+----------------------- Page 4-----------------------
+
+Példa: különféle szakterületek egy repülésirányító rendszerben  
+
+                                                                                                 
+Rendszerkövetelmények  
+z    A követelmények három típusa  
+       •   Absztrakt funkcionális követelmények. A rendszer funkcióit absztrakt módon definiáljuk  
+       •    Rendszertulajd onságok. Az egész  rendszerre vonatkozó nem funkcionális  
+            követelményeket definiáljuk.   
+       •    Nem kívánatos tulajdonságok. Nem megengedett viselkedés specifikációja.   
+z    Definiálni kell a rendszer helyét és célját is a felhasználó szervezeti egységben.  
+
+A rendszer célja  
+z    Definiálni kell, hogy miért van szükség a rendszerre az adott környezetben.  
+z    Funkcionális célok  
+       •    Pl.: „Tűzvédelmi és behatolás jelző rendszer, amely külső és belső riasztási jeleket ad  
+            tűz, vagy illetéktelen behatolás esetén”  
+z    Szervezeti célok  
+       •    Pl.: „Biztosítani kell, hogy a normál munkavégzés folyamatát komolyabb mértékben  
+            nem zavarják meg olyan rendkívüli események, mint tűzeset, vagy illetéktelen  
+            behatolás”  
+
+Problémák a rendszerkövetelmények körül  
+z    Komplex rendszerek általában nehéz problémák megoldását tűzik ki célul  
+       •   A probléma nem teljesen ismert;  
+       •    Specifikáció közben változik a probléma.  
+z    A rendszer életciklusa alatt számítani kell a hardver és a kommunikációs rendszer  
+     fejlődésére.   
+z    A nem funkcionális követelmények definiálása nehéz, különösen, ha a rendszer felépítése,  
+     komponensei nem ismertek.  
+
+Ian Sommerville: Software Engineering, 7th edition. Chapter 2  
+
+© Ian Sommerville 2004, © Gyula Simon 2005 (magyar verzió)  
+
+----------------------- Page 5-----------------------
+
+A rendszertervezés folyamata  
+z    A követelmények csoportosítása  
+      •    Követelményeknek kapcsolódó csoportokra osztása  
+z    Alrendszerek meghatározása  
+      •    Alrendszerek olyan halmazának meghatározása, amelyek együttesen képesek a  
+           rendszerkövetelmények teljesítésére.  
+z    Követelmények hozzárendelése az alrendszerekhez  
+      •    Nehézségbe ütközik, ha COTS rendszereket integrálunk.  
+z    Alrendszerek funkcionalitásának specifikálása.  
+z    Alrendszerek interfészeinek definiálása  
+      •    Különösen fontos párhuzamos alrendszer-fejlesztés esetén.  
+
+                                                                                 
+A rendszertervezés nehézségei  
+z    Hosszas viták előzhetik meg a hardver-szoftver-emberi erőforrásokra való dekompozíciót.  
+z    Gyakori tévhit, hogy a nehéz tervezési problémákat szoftverben könnyű lesz megoldani.  
+z    A hardver platformok gyakran nem elégítik ki a követelményeket, amit aztán a szoftvernek  
+     kell kompenzálnia.  
+
+Követelmény- és rendszertervezés  
+z    A követelménytervezés és a rendszertervezés szorosan összefügg.  
+z    A környezet és más rendszerek szűkítik a tervezési lehetőségeket. Lehet, hogy követelmény  
+     egy adott rendszer felhasználása.  
+z    Egy kezdeti rendszerterv szükséges lehet a  követelmények rendszerezéséhez.  
+z    A rendszer tervezése közben egyre több információ gyűlik fel a követelményekről.  
+
+A követelmény- és rendszertervezés spirális modellje  
+
+                                                                               
+
+Ian Sommerville: Software Engineering, 7th edition. Chapter 2  
+
+© Ian Sommerville 2004, © Gyula Simon 2005 (magyar verzió)  
+
+----------------------- Page 6-----------------------
+
+Rendszermodellezés  
+z    Az architektúra modell a rendszert alkotó alrendszerek absztrakt reprezentációja  
+z     Tartalmazhatja az alrendszerek közötti főbb információfolyamokat is  
+z    Általában blokk-diagram formájában használjuk  
+
+Példa: Betörésjelző rendszer  
+
+                                                                                              
+Alrendszerek leírása  
+
+Alrendszer                    Leírás  
+
+Mozgásérzékelők               A monitorozott helységekben mozgást érzékel  
+
+Ajtószenzorok                 Érzékeli az épület külső ajtóinak nyílását  
+
+Központi egység               A rendszer működését vezérli  
+
+Sziréna                       Hangjelzést ad behatolás esetén   
+
+Hangszintetizátor             Hangüzenetet szintetizál a behatoló feltételezett helyéről  
+
+Telefonos hívó                Hívásokat generál pl. a rendőrség, biztonságiak, stb. felé  
+
+Példa: Repülésirányító rendszer  
+
+                                                                                   
+
+Ian Sommerville: Software Engineering, 7th edition. Chapter 2  
+
+© Ian Sommerville 2004, © Gyula Simon 2005 (magyar verzió)  
+
+----------------------- Page 7-----------------------
+
+Alrendszerek fejlesztése  
+z    Általában párhuzamosan zajlik a hardver, szoftver és a kommunikáció fejlesztése.  
+z    Tartalmazhat COTS  (Commercial Off-The-Shelf) rendszerek beszerzését is.  
+z    A fejlesztő csoportok között nincs kommunikáció.  
+z    Amennyiben változtatásra van szükség, a lassú és bürokratikus engedélyeztetési eljárások  
+     miatt gyakran határidő módosítás is szükséges.  
+
+Rendszerintegráció  
+z    Az a folyamat, amelynek során a hardver, szoftver és személyi állomány együttesen  
+     rendszert alkot.  
+z    Célszerű inkrementálisan végezni (egyszerre csak egy  alegység integrálása).  
+z    Az alegységek közötti interfész problémák rendszerint ebben a fázisban derülnek ki.  
+z    A rendszerkomponensek koordinálatlan beszállítása gondokat okoz.  
+
+Telepítés  
+z    A rendszert elkészülte után a megrendelőnél üzembe kell helyezni  
+      •    A környezettel kapcsolatos feltételezések esetleg tévesek voltak;  
+      •    Az új rendszerrel szemben ellenállást tapasztalhatunk a befogadó oldalon;  
+      •    A rendszernek egy ideig esetleg együtt kell létezni más rendszerekkel;  
+      •    Fizikai problémák is felléphetnek a telepítés során (pl. kábelezési gondok);  
+      •    Az operátorok betanításról gondoskodni kell.  
+
+A rendszer evolúciója  
+z    Nagy rendszerek hosszú élettartamúak. Lépést kell tartani a változó követelményekkel.  
+z    Az evolúció költséges!  
+      •    A változásokat technikai és üzleti szempontból is elemezni kell;  
+      •    Az alrendszerek egymásra hatása miatt nem várt problémák adódhatnak;  
+      •    Ritkán ismertek az eredeti tervezési megfontolások;  
+      •    A rendszer struktúrája sérül a folyamatos változtatások során.  
+z    Azon régebbi rendszert, amelynek fenntartása elengedhetetlen legacy rendszernek  
+     nevezzük.  
+
+Rendszerek leépítése  
+z    A rendszer működésből való kivonása annak hasznos élettartama után.   
+z    Szükséges lehet veszélyes, vagy környezetszennyező anyagok ártalmatlanítása.    
+      •    Már a rendszertervezés során ezt tervezni kell!  
+z    Szükség lehet adatkonverzióra más rendszerekben való felhasználás céljából.  
+
+Szervezetek, emberek és rendszerek  
+z    Az ember-gép rendszerek olyan rendszerek, melyek egy adott szervezeti egység működési  
+     és üzleti céljait segíti elérni.  
+z    Ha nem értjük a rendszert felhasználó szervezeti környezetet, akkor nem valósz ínű, hogy a  
+     rendszer a felhasználók valós igényeit ki tudja elégíteni.  
+
+Emberi és szervezeti tényezők  
+
+z    Változások a munkafolyamatban  
+      •    A rendszer bevezetése szükségessé tesz-e változásokat a munkafolyamat során?  
+z    Munkahelyek veszélyeztetése   
+      •    Elvesznek-e munkahelyek a rendszer bevezetése miatt, illetve meg kell-e változtatni a  
+           jelenlegi m unkavégzés módját?  
+z    Szervezeti változások  
+      •    Megváltoztatja-e a rendszer a szervezeti egység jelenlegi politikai/hatalmi  
+           elrendezését?  
+
+Ian Sommerville: Software Engineering, 7th edition. Chapter 2  
+
+© Ian Sommerville 2004, © Gyula Simon 2005 (magyar verzió)  
+
+----------------------- Page 8-----------------------
+
+Szervezeti eljárások  
+z    A rendszertervezés folyamata szoros kapcsolatban és átfedésben van a szervezeti egység  
+     beszerzési és működtetési folyamataival.   
+z    A működtetési folyamat a rendszer rendeltetésszerű használatának folyamata. Új  
+     rendszereknél ezt a rendszertervezés során definiálni kell.   
+z    A működtetési folyamatnak flexibilisnek kell lennie. Nem szabad egy adott megoldási módot  
+     ráerőszakolni az operátokra. Fontos, hogy az operátorok szabadon használják ötleteiket a  
+     felmerülő problémák megoldására.   
+  
+
+Beszerzési- és fejlesztési folyamatok  
+
+                                                                  
+Beszerzés  
+z    A szervezet igényeinek megfelelő rendszer beszerzése  
+z    Beszerzés előtt általában szükséges némi rendszerspecifikáció és architektúra tervezés  
+       •    Specifikációra szükség van a rendszertervezési szerződés megkötéséhez.  
+       •    A specifikáció esetleg lehetővé teszi kész (COTS) rendszer beszerzését. Ez majdnem  
+            mindig olcsóbb, mint a rendszer ismételt kifejlesztése.   
+z    Nagy rendszerek vegyesen tartalmaznak kész komponenseket és speciálisan erre a célra  
+     kifejlesztett részegységeket. A különböző típusú komponensek  általában különböző  
+     beszerzési eljárást igényelnek.  
+
+A beszerzés folyamata  
+
+                                                                                                
+Beszerzési kérdések  
+z    A követelményeket időnként módosítani kell a beszerezhető kész rendszer tulajdonságainak  
+     függvényében.  
+z    A követelmény specifikáció a kifejlesztendő rendszerről kötött szerződés része lehet.  
+z    A rendszer szállítójának kiválasztása után általában egy szerződés tárgyalási szakasz során  
+     az esetleges változtatásokról megállapodás születik.  
+
+Ian Sommerville: Software Engineering, 7th edition. Chapter 2  
+
+© Ian Sommerville 2004, © Gyula Simon 2005 (magyar verzió)  
+
+----------------------- Page 9-----------------------
+
+Vállalkozók és alvállalkozók  
+z    Nagy hardver/szoftver rendszerek beszállítását általában egy fővállalkozó intézi.  
+z    Alvállalkozók részegységeket szállíthatnak be.  
+z    A megrendelő a fővállalkozóval szerződik és nincs közvetlen kapcsolata az alvállalkozókkal.  
+
+Fővállalkozó/alvállalkozó modell  
+
+                                                                     
+Legacy rendszerek  
+z    Olyan ember-gép rendszerek, amelyek régi vagy elavult technológiával lettek kifejlesztve.  
+z     Üzleti szempontból kritikus fontosságúak és gyakran túl kockázatos ezek  
+     felszámolása/cseréje  
+       •    Banki könyvelési rendszerek;  
+       •    Repülési karbantartó rendszerek  
+z    A legacy rendszerek korlátozzák az új üzleti eljárások bevezetését.   
+z    A vállalati kiadások jelentős részét ezek emésztik fel.  
+
+Legacy rendszerek komponensei  
+                                                                    Embeds 
+                                                                 knowledge of 
+                               Uses 
+   Support software                            Application                        Business policies 
+                                                 software                              and rules 
+
+ Runs-on                         Runs-on              Uses               Uses                Constrains 
+
+        System                                 Application                            Business 
+       hardware                                    data                               processes 
+                                                                                                            
+  
+z     Hardware – gyakran elavult mainframe hardver  
+z    Support software – gyakran a szolgáltatók már nem léteznek.  
+z    Application software – Gyakran elavult programnyelveken íródtak.  
+z    Application data – Gyakran hiányos és inkonzisztens.   
+z    Business processes – A szoftver struktúrája és funkcionalitása korlátozhatja.   
+z    Business policies and rules – A szoftverbe implicit módon beépülhet.   
+
+Ian Sommerville: Software Engineering, 7th edition. Chapter 2  
+
+© Ian Sommerville 2004, © Gyula Simon 2005 (magyar verzió)  
+
+----------------------- Page 10-----------------------
+
+Összefoglalás  
+z     Az ember-gép rendszerek tartalmaznak számítógépes hardvert, szoftvert, valamint emberi  
+      kezelőket. Célja valamilyen üzleti cél elérésének segítése.  
+z     A globális eredő tulajdonságok a rendszer egészének működését jellemzik, nem pedig  
+      valamelyik részegységét.  
+z     A rendszertervezés folyamata: specifikáció, tervezés, fejlesztés, integráció és tesztelés. A  
+      rendszerintegráció különösen kritikus.   
+z     Az emberi és szervezeti tényezőknek nagy hatása van az ember-gép rendszerek  
+      működésére.   
+z     A beszerzési, fejlesztési és működtetési folyamatok szorosan összefüggnek.  
+z     A legacy rendszerek olyan öreg rendszerek, amelyek folyamatosan működve fontos  
+      szoláltatásokat nyújtanak.   
+z     Legacy rendszerek részei: üzleti folyamatok, szoftver alkalmazás, kiegészítő szoftverek és a  
+      hardver.   
+  
+  
+
+Ian Sommerville: Software Engineering, 7th edition. Chapter 2  
+
+© Ian Sommerville 2004, © Gyula Simon 2005 (magyar verzió)  
