@@ -1,0 +1,82 @@
+/*{
+{ Category
+  { Label "Java" }
+  { Variable
+      { Name ProjectName }
+      { Type text }
+      { DefaultValue "${system}" }
+      { EditorType text }
+  }
+}
+}*/
+
+USES std;
+
+proc main()
+    init();
+    if([srcdir] == "")
+        info = "There is no output directory specified!\n";
+        return;
+    end if
+    if([ProjectName] == "")
+        info = "There is no project name specified!\n";
+        return;
+    end if
+    
+    mkdir([srcdir] "/" [ProjectName]);
+    output([srcdir] "/" [ProjectName] "/" [ProjectName] ".java");
+    out = genClasses();
+end proc
+
+
+template genClasses()
+  [loop(Instances->MClass)]
+public class [MClass.name] {
+}
+  [end loop]
+end template
+
+
+
+// Utility functions:
+// ==================
+
+// Upcases the first character of a word.
+tcl_proc string_capitalize(str)
+    set fc [string index $str 0];
+    set fc [string toupper $fc];
+    set rest [string range $str 1 end];
+    set str [append fc $rest];
+    return $str;
+end proc
+
+
+// Lowercases the first character of a word.
+tcl_proc string_decapitalize(str)
+    set fc [string index $str 0];
+    set fc [string tolower $fc];
+    set rest [string range $str 1 end];
+    set str [append fc $rest];
+    return $str;
+end proc
+
+/* Generates a marked section in the output. The content of this section can 
+be changed by the user in the generated file. These changes will not be 
+overwritten in subsequent cycles of code generation */
+template mergeOut(uniqueId,desc)
+//#ACD# M([uniqueId]) [desc]
+//user defined code to be added here ...
+
+//#end ACD#
+end template
+
+
+/* this procedure is called once by main (defined in cpp_main.tdl) before
+   any other procedure or template. It sets up the merge mechanism for 
+   incremental code generation (delMergeFile and appendMergeFile).
+   The current language for type mapping is defined (setLanguage) */
+proc init()
+    delMergeFile();
+    appendMergeFile("merge_config_JAVA.txt");
+    setLanguage("Java");
+end proc

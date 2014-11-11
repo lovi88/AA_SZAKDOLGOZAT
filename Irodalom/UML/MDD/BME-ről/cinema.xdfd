@@ -1,0 +1,33 @@
+contextdiagram cinema
+{
+    terminator customer;
+
+    process ticket_selling;
+    
+    dataflow ticket_params: customer -> ticket_selling;
+    dataflow money: customer -> ticket_selling;
+    dataflow ticket: ticket_selling -> customer;
+    dataflow change: ticket_selling -> customer;
+}
+
+dataflowdiagram ticket_selling
+{
+    store seats;
+    store purse;
+    store strings;
+
+    process reservation;
+    process money_handling;
+    process printing;
+
+    dataflow ticket_params: -> reservation;
+    dataflow money: -> money_handling;
+    dataflow ticket: printing -> ;
+    dataflow change: money_handling -> ;
+    dataflow ticket_info: reservation -> printing;
+    dataflow price: reservation -> money_handling;
+    dataflow income: money_handling -> reservation;
+    dataflow: reservation -> seats;
+    dataflow: money_handling -> purse;
+    dataflow: purse -> money_handling;
+}
