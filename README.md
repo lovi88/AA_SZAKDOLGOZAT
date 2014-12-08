@@ -1,2 +1,0 @@
-AA_SZAKDOLGOZAT
-===============
