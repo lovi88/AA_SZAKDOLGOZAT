@@ -1,0 +1,44 @@
+Elég-e csak a piros, és a zöld rész??
+	igen
+Tényleg csak az iskola tulajdona lesz a program?
+	nem
+Jó-e úgy a 6.melléklet
+	igen
+Ha ketten írjuk, attól csak én legyek a szerző?
+	igen
+Esetünkben a tudományos cikkben mi legyen? Mert hát ez egy szoftver.
+
+Mondjuk van egy asztal, amire rátett az illetőnk 3 megrendelést (de még nem küldte el).
+Viszont valamiért kilép (ESC-el) és arréb megy (mert mondjuk a vevőnk még nem biztos hogy kéri ezeket, viszont a pincér meg nem törli le)
+Ilyenkor ha vki más megnyitja azt az asztalt, akkor most láthatja az ott lévő rendeléseket (illetve biztos h láthatja, csak eleve megnyithatja-e az asztalt?)
+Szerintem igen.
+
+
+
+Németh László már készített ilyet
+Holyinkát, vagy Schmuck-ot megkérdezni, hogy ők ismernek-e ilyen rendszereket.
+
+-----------20140513
+Kutornak:
+milyen diagramok kellenek? (szekvencia kell-e? eddig van: useCase, Class)
+
+ezek a mellékletbe kellenek, vagy a fődokumentumba?
+
+milyen részletességgel kell kidolgozni a tervezést (eap-ot)?
+
+milyen részletességgel kell leírást készíteni hozzá? (lépésről lépésre, v csak funkcióleírás)
+
+mennyire fontos a tervezés, vagy inkább a megvalósítás a cél?
+
+
+----------20141026
+Kutor:
+baj-e ha a feladatkiírásból csak a mobilklienst, és az adminoldalt valósítom meg, tehát az asztali kliens kimarad? Mennyire veszik komolyan a feladatkiírást?
+	nem gond, de indokoljam meg
+Szakdogából hogyan készítsek tiszteletpéldányt?
+	ugyanaz, kivétel a feladatkiírás, ott a másolata kell
+Konzultációs naplók 1/2 elkészítése. Géppel, vagy kézzel?
+	az eleje lehet géppel, de a többi mind kézzel
+hogy mennyire kell belemenni az implementáció leírásába, minden egyes metódust le kell írni, vagy elég az hogy adott osztály mit csinál, és a főbb dolgokat kiemelni belőle
+
+----------20150430
